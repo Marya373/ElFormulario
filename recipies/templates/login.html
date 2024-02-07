@@ -1,0 +1,28 @@
+{%extends 'base.html' %}
+
+{% block title %}
+Registration
+{%endblock%}
+
+{% block content %}
+    <div class="content-section">
+        <form action="" method='post' enctype="multipart/form-data">
+                {{ form.error_messages }}
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Вход</legend>
+                {{ user.in_active }}
+              Логин:  {{ form.username }}<br>
+              Пароль: {{ form.password }}<br>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Войти</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Нужен аккаунт? <a class="ml-2" href="/register">Регистрация</a>
+            </small>
+        </div>
+    </div>
+{%endblock%}

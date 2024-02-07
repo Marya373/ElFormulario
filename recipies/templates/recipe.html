@@ -1,0 +1,28 @@
+{%extends 'base.html' %}
+
+
+{% block title %}
+Recipe
+{%endblock%}
+
+{% block content%}
+
+    <h1>{{ i.name }}</h1>   
+
+    <p>Автор: {{ i.author }}</p>
+
+    <p>{{ i.description }}<p>
+
+    <p>Время приготовления: {{ i.cooking_time }}</p>
+     {%load static%}
+    <img class="menu_subbarpic" src="{%static i.image %}" alt="{{ i.name }}" width='120'><br>
+
+    <p><h5>Порядок приготовления</h5></p>
+    
+    {%for m in steps %}
+        {{ m }} <br>
+    {% endfor %}
+
+{% endblock %}
+
+

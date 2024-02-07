@@ -1,0 +1,22 @@
+{%extends 'base.html' %}
+
+
+{% block title %}
+Main
+{%endblock%}
+
+{% block content%}
+        <h1>Главная</h1>
+        {%load static%}
+        {% comment %} <img class="menu_subbarpic" src="{%static 'mainpic.jpg'%}" alt="recipies" width='820'> {% endcomment %}
+
+        {% for i in list %}
+        <div class='recipe'>
+        </br>
+           <a href="{{ i.id }}" class="nav-link"><h4>{{ i.name }}</h4></a>
+           <p>{{ i.description }}</p>
+            <img class="menu_subbarpic" src="{%static i.image %}" alt="{{ i.name }}" width='120'><br>
+        </div>
+        {% endfor %}
+
+{%endblock%}
