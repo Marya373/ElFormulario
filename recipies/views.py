@@ -171,23 +171,6 @@ def my_view(request):
             else:
                 messages.warning(request, f'Неверно введены логин или пароль, попробуйте снова.')
                 def my_view(request):
-    title = 'Вход'
-    btn = 'Войти'
-    if request.method == 'POST':
-        form = AuthenticationForm(request.POST)
-        if form.is_valid():
-            username = request.POST["username"]
-            password = request.POST["password"]
-            try:
-                user = User.objects.get(username=username)
-            except ObjectNotFound as e:
-                messages.warning(request, str(e))
-            if User.check_password(password):
-                login(request, user)
-                return redirect('index')
-            messages.warning(request, f'Неверно введены логин или пароль, попробуйте снова.')
-
-
 
             # user = authenticate(request, username=username, password=password)
             # if user is not None:
