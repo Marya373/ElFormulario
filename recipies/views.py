@@ -167,25 +167,15 @@ def my_view(request):
             if user is not None:
                 login(request, user)
                 return redirect('index')
-     
-            else:
+           else:
                 messages.warning(request, f'Неверно введены логин или пароль, попробуйте снова.')
-                def my_view(request):
-
-            # user = authenticate(request, username=username, password=password)
-            # if user is not None:
-            #     login(request, user)
-            #     return redirect('index')
-
-            # else:
-            #     messages.warning(request, f'Неверно введены логин или пароль, попробуйте снова.')
-    else:
-        form = AuthenticationForm()    
-    return render(request, 'login.html', 
-                  {'form': form, 
-                   'button': btn, 
+        else:
+            messages.warning(request, f'Неверно введены логин или пароль, попробуйте снова.')
+    return render(request, 'login.html',
+                  {'form': AuthenticationForm(),
+                   'button': btn,
                    'title': title})
-    
+
 def tester(request):
     users = list(User.objects.all())
     for user in users:
